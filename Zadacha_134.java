@@ -1,21 +1,14 @@
-import java.util.Scanner;
+import java.util.HashSet;
+import java.util.Random;
 public class Zadacha_134 {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        int i = 0,  a, kv=-1 ;
-        while (s.hasNextInt()) {
-            a = s.nextInt();
-            a=(int)Math.pow(a,2);
-            if(a!=kv) {
-                kv=a;
-                i++;
-            }
-            else {
-                i=0;
-            }
-            System.out.println(i);
+        Random random = new Random();
+        HashSet<Integer> set = new HashSet<>();
+        for(int i = 0; i < 9; i++) {
+            int a = random.nextInt(9)-4;
+            System.out.println(a);
+            set.add(a*a);
         }
-        System.out.println(i);
-        s.close();
+        System.out.println("Количество различных квадратов: " + set.size());
     }
 }
